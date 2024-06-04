@@ -14,12 +14,15 @@ This project is an Excel Analyzer tool that processes multiple Excel files to ex
    python main.py --analyze <path_to_excel_file> --output <output_excel_file>
    ```
    This command analyzes the specified Excel file and saves the column information to the output file.
+   The output file contains the columns "first col" where the user need to write manually the first column header of each sheet. This way on the next step the script can identify where to start looking for the headers. Column "ignore" if set to "YES" will ignore the whole row. Use it to ignore complete sheets.
 
 2. **Processing Excel Files from a Directory**
    ```bash
    python main.py --path <directory_path> --output <output_excel_file>
    ```
    This command processes all Excel files in the specified directory and saves the aggregated column information to the output file.
+   There are 3 columns that can be manually filled and that are focused in helping the person that will use this document later.
+   The colum DataType needs to be manually set, use the example columns to find out the data type. The colum rename can be used to define a rename for a specific column. The column observations can inlcude observations such as format, type of object, etc.
 
 ## Requirements
 - pandas
@@ -32,6 +35,26 @@ Ensure you have Python installed. You can install the required libraries using p
 ```bash
 pip install pandas openpyxl
 ```
+### Installation in Mac (pip & homebrew)
+Setting up python virtual environment for python and pip lib management in mac using homebrew :
+
+1. **Create a Virtual Environment**
+   ```bash
+   python3 -m venv ~/excel_parser/venv
+   ```
+
+2. **Activate the Virtual Environment**
+   ```bash
+   source ~/excel_parser/venv/bin/activate
+   ```
+3. **Upgrade pip Within the Virtual Environment**
+   ```bash
+   python -m pip install --upgrade pip
+   ```
+4. **Install Packages**
+   ```bash
+   pip install pandas openpyxl
+   ```
 
 ## Functions
 ### `main.py`
@@ -59,5 +82,5 @@ python main.py --path /path/to/excel/files --output aggregated_column_info.xlsx
 ```
 
 ## License
-This project is licensed under the MIT License.
+This project belongs to Ar
 
